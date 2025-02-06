@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using Unity.Netcode.Transports.UTP;
 using System.IO;
 using TMPro;
-
+using System.Net;
+using System.Net.Sockets;
 public class netui : MonoBehaviour
 {
     
@@ -32,12 +33,27 @@ public class netui : MonoBehaviour
         transport.SetConnectionData(s,8009);
 
     }
+    public string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return ip.ToString();
+            }
+        }
+        throw new System.Exception("No network adapters with an IPv4 address in the system!");
+    }
 
     public void Start(){
          if(Application.platform != RuntimePlatform.Android)
         {
          string path = Application.dataPath + "/server.txt";
          string path_fps = Application.dataPath + "/fps.txt";
+         Debug.LogWarning(GetLocalIPAddress());
+
+
         if(!File.Exists(path))
         {
             File.WriteAllText(path,"off");
@@ -71,7 +87,8 @@ public class netui : MonoBehaviour
         
         }
         
-        string con_data =File.ReadAllText(pathe);
+       // string con_data =File.ReadAllText(pathe);
+       string con_data = GetLocalIPAddress();
         transport.SetConnectionData(con_data,8009);
         }
          
