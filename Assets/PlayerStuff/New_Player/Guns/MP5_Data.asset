@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MP5_Data
   m_EditorClassIdentifier: 
   def_damage: 50
-  def_magsize: 99999999
+  def_magsize: 40
   timeBetweenShooting: 0.0765
   spread: 0.005
   range: 300

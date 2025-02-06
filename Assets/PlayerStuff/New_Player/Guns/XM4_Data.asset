@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: XM4_Data
   m_EditorClassIdentifier: 
   def_damage: 100
-  def_magsize: 9999999
+  def_magsize: 30
   timeBetweenShooting: 0.09557
   spread: 0.005
   range: 300
