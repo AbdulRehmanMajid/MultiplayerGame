@@ -6,6 +6,7 @@ This is a Multiplayer game i developed in my free time via Unity using Netcode f
 ## Features
 
 - Procedural Recoil
+- First and third person POV
 - Revive Mechanics
 - Cross platform
 - Low Spec Requirements
@@ -13,3 +14,10 @@ This is a Multiplayer game i developed in my free time via Unity using Netcode f
 - Points System
 - Zombies 
 
+## TODO
+- Improve review mechanics
+- Add story and setting
+- Improve Zombie Ai
+- Improve Client sync
+- Remove Legacy code
+  
