@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - enemy
+  - Non_Explosive
+  - Zombie
+  - CinemachineTarget
+  - lol_ball
+  - explosive
+  - rai_kill
+  - Self_cam
+  - Other_cam
+  - screen
+  - Spawn
+  - Spawner
+  - Explosive_manager
+  - screenspace
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - screenspace
+  - Water
+  - UI
+  - ground
+  - enemy
+  - weapon
+  - enemeyui
+  - player
+  - zombie
+  - nonRagdoll
+  - def_ui
+  - Barrel
+  - Player_raggDoll
+  - gun_picker
+  - non_shootable
+  - worldui
+  - camera_cull
+  - Player_body
+  - body
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

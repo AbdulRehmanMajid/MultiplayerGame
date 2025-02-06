@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4379713ae60b9944fa042d469572c87a, type: 3}
+  m_Name: Gallo_Data
+  m_EditorClassIdentifier: 
+  def_damage: 30
+  def_magsize: 98
+  timeBetweenShooting: 0.19
+  spread: 0.1
+  range: 80
+  reloadTime: 1
+  timeBetweenShots: 0.001
+  bulletsPerTap: 8
+  allowButtonHold: 0
+  is_shotgun: 1
+  is_sniper: 0
+  upwards_recoil: -2
+  upwards_recoil_mobile: -1
+  rotationSpeed: 14
+  returnSpeed: 15
+  Recoil: {x: -6, y: 6, z: 6}
+  Recoil_mobile: {x: -1, y: 0.75, z: 0.75}
+  use_old_sound_system: 1
+  shootsound_start: {fileID: 8300000, guid: ebf193957df511f42861104e68fc423e, type: 3}
+  shootsound_continue: {fileID: 0}
+  shootsound_end: {fileID: 0}
+  tracer_enabled: 0
+  rarity_lvl_3_magsize: 196
+  rarity_lvl_4_damage: 50
+  rarity_lvl_5_damage: 60

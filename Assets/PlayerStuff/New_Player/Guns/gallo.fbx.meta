@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: e80a2745be41db14697f65fa0c7835c3
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_forend_alt_bpu_darkaether
+    second: {fileID: 2100000, guid: 2e257650e57d6f34d99200787ee4f0bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_forend_bpu_darkaether
+    second: {fileID: 2100000, guid: 9e50e221b7038a44eb45d959330ff661, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_grip_alt_bpu
+    second: {fileID: 2100000, guid: 80bc28a27ff5aff489e0edde420f77c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_grip_bpu
+    second: {fileID: 2100000, guid: f0afa5e0d90090e4b8508f2b65d64b39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_receiver_alt_bpu_darkaether
+    second: {fileID: 2100000, guid: a66466ed8c239284899f6a1134df8bf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_receiver_bpu_darkaether
+    second: {fileID: 2100000, guid: e5142e9f14cda4248a7e16f41fe35f39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_cb_triggergroup_alt_bpu
+    second: {fileID: 2100000, guid: d28fc1fe774218b4c86e94e1e90beca8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_wpn_t9_shotgun_semiauto_rail
+    second: {fileID: 2100000, guid: e756e445074d140408f7403ed228cc50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_47335b983885ec5
+    second: {fileID: 2100000, guid: 2646c8b185e43f44da6ffea5f3e56f84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_67423d1910c59f1
+    second: {fileID: 2100000, guid: 7d091e08e8619094cb92ec6354df9bb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_d23711586484ea8
+    second: {fileID: 2100000, guid: e320bcb3e360b7240857ad1f102c32a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_d2373158648520e
+    second: {fileID: 2100000, guid: 067de330d0cdf3a419d448b7ccf91fcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_d2d02dbb5216044
+    second: {fileID: 2100000, guid: 3e6bb5a635b848847b51de0ccecbcb2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_e405fc62475273b
+    second: {fileID: 2100000, guid: b8313882b7a7eca4eb5a6fc831b40332, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_e4060c6247528ee
+    second: {fileID: 2100000, guid: 2bc672518a27e0440b20bfc8699ed164, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: $black_color
+    second: {fileID: 2800000, guid: 8e0fa286968d7ad428365df5a80336cf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: $blacktransparent_color
+    second: {fileID: 2800000, guid: c81931bf5d4a951439264980604a1c9e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_mtl_zm_ndu_dark_aether_bio_01_c
+    second: {fileID: 2800000, guid: 25fa71b8d20afb94cb6901b17d0104fe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_wpn_t9_shotgun_semiauto_cb_forend_bpu_darkaether_c
+    second: {fileID: 2800000, guid: a634f9a3d1c0682409c3304ea88799c0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_wpn_t9_shotgun_semiauto_cb_grip_c
+    second: {fileID: 2800000, guid: 5a601dc4fa4b42c4da8416cf425ce6d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_wpn_t9_shotgun_semiauto_cb_receiver_bpu_darkaether_c
+    second: {fileID: 2800000, guid: f089166fe2347c84fabd815f1ac3d822, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_wpn_t9_shotgun_semiauto_cb_triggergroup_c
+    second: {fileID: 2800000, guid: 0e1cc8d342e4a4a45ad30e37a81c2ca0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_wpn_t9_shotgun_semiauto_rail_c
+    second: {fileID: 2800000, guid: 66994b89205085644980bccd5b2004d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ximage_43beb06343edee7
+    second: {fileID: 2800000, guid: fb2ce545a62d7ee42b24a2a0f756d35b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ximage_b5bfa844a898569
+    second: {fileID: 2800000, guid: ee4de268cff744144876f5d08eb14c29, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ximage_c85648454358fc7
+    second: {fileID: 2800000, guid: 6504383633bdca34a815dc5551bb46e5, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

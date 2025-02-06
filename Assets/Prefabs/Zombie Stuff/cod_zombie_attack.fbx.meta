@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: 30992822fddea9343909b8e08d1d8378
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t8_zmb_eyes
+    second: {fileID: 2100000, guid: 42940a2bd4f6697479c66e7ee88c1b0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t8_zmb_eyes_lod
+    second: {fileID: 2100000, guid: 50653f3f326b1b24b9509bd5303fd78a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_arms_skin1
+    second: {fileID: 2100000, guid: 3080e791b6706b747b98ee1e443cb9f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_arms_skin_bloody
+    second: {fileID: 2100000, guid: 32a7e1a6b16a9894290921508c12187b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_belt
+    second: {fileID: 2100000, guid: 58eb0a5cab2289f4996e984ac6e19e51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_belt_loops
+    second: {fileID: 2100000, guid: e2df8bf78d723b145a11fe49478906b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_belt_metal
+    second: {fileID: 2100000, guid: b5de686d8eaf97148b5c71981c407bdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_boots
+    second: {fileID: 2100000, guid: 8cb13d78b54386e49b321c6ec24d3dd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_head5
+    second: {fileID: 2100000, guid: 4ff5f59f27dd07b42bb3c87c633ba017, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_knee
+    second: {fileID: 2100000, guid: 6c4767ab150e2e046a13328c2c461d71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_ndu_honorguard_torso_skin1
+    second: {fileID: 2100000, guid: 784a77d592ffc0a48883a2f09d8cfc16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_neckseam
+    second: {fileID: 2100000, guid: fe36e875bb427ed48bb04e6203d8cae3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_zombie_teeth_reveal
+    second: {fileID: 2100000, guid: 0dd17a5bb40952249a1d49a0c445fa88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_c_t9_zmb_zombie_teeth_reveal_lod
+    second: {fileID: 2100000, guid: 68b98d29ef3620046aa65befe3c367d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_a3aef677e3e1d3a
+    second: {fileID: 2100000, guid: 1057c6b9ca584a9468f536fa0628bca5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_a47f2c3d31f6543
+    second: {fileID: 2100000, guid: fccaf72ee1e2ac242a69f14659a2f113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_a8506c3d353355d
+    second: {fileID: 2100000, guid: 8afc05b4ab5d8554bb3a657e2466bcd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: xmaterial_c433a1d58d03ed6
+    second: {fileID: 2100000, guid: 98f19a896ef090d458d9df0ddd468c71, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_ndu_zombie_belt_c
+    second: {fileID: 2800000, guid: 56ee9f15aa9b365428a4c4bbc49b2578, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_ndu_zombie_boots_c
+    second: {fileID: 2800000, guid: f23a8507bf4a65f43bbb6aa3b9c5d520, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_ndu_zombie_head_skull_c
+    second: {fileID: 2800000, guid: d69c1406f346fc146a536f20061edd4c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_ndu_zombie_pants_lt_c
+    second: {fileID: 2800000, guid: eaee5ea3c4353734a9f8b9583013ac16, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_ndu_zombie_pants_rt_c
+    second: {fileID: 2800000, guid: 80841e0b9a551ec45b8ea799444d3434, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_arms_skin1_c
+    second: {fileID: 2800000, guid: 28f24cd687875ab4d911431b0acc7a80, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_male_head1_c
+    second: {fileID: 2800000, guid: 0fd049e3320e6294b8c5f07dcaf13a55, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_male_head2_c
+    second: {fileID: 2800000, guid: 4eca1306d753b67469a7fee8807ad71f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_teeth_c
+    second: {fileID: 2800000, guid: 83cec00178ad80d419e6937e62a3b358, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_torso2_skin1_c
+    second: {fileID: 2800000, guid: da428d72c16ce274b909e4e157bf36bb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: i_c_t9_zmb_zombie_torso_skin1_c
+    second: {fileID: 2800000, guid: cc26476df9d606445b90331f54404a43, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

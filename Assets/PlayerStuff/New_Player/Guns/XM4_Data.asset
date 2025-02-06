@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4379713ae60b9944fa042d469572c87a, type: 3}
+  m_Name: XM4_Data
+  m_EditorClassIdentifier: 
+  def_damage: 100
+  def_magsize: 9999999
+  timeBetweenShooting: 0.09557
+  spread: 0.005
+  range: 300
+  reloadTime: 2
+  timeBetweenShots: 0
+  bulletsPerTap: 0
+  allowButtonHold: 1
+  is_shotgun: 0
+  is_sniper: 0
+  upwards_recoil: -1
+  upwards_recoil_mobile: -0.3
+  rotationSpeed: 14
+  returnSpeed: 15
+  Recoil: {x: -2, y: 2.15, z: 2.15}
+  Recoil_mobile: {x: -0.5, y: 0.5, z: 0.5}
+  use_old_sound_system: 0
+  shootsound_start: {fileID: 8300000, guid: 7ea1955a7b2ff4846b93097b150484e9, type: 3}
+  shootsound_continue: {fileID: 8300000, guid: de8f7309037fb294e9ac92aed6059642, type: 3}
+  shootsound_end: {fileID: 8300000, guid: 3135d06f34c6ce14faa0c37b259da251, type: 3}
+  tracer_enabled: 1
+  rarity_lvl_3_magsize: 50
+  rarity_lvl_4_damage: 120
+  rarity_lvl_5_damage: 150

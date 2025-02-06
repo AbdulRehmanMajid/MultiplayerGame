@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4379713ae60b9944fa042d469572c87a, type: 3}
+  m_Name: L96_Data
+  m_EditorClassIdentifier: 
+  def_damage: 2000
+  def_magsize: 7
+  timeBetweenShooting: 0.8
+  spread: 0
+  range: 500
+  reloadTime: 2
+  timeBetweenShots: 0
+  bulletsPerTap: 0
+  allowButtonHold: 1
+  is_shotgun: 0
+  is_sniper: 1
+  upwards_recoil: -4
+  upwards_recoil_mobile: -2
+  rotationSpeed: 14
+  returnSpeed: 7
+  Recoil: {x: -6, y: 2.15, z: 2.15}
+  Recoil_mobile: {x: -3, y: 0.75, z: 0.75}
+  use_old_sound_system: 1
+  shootsound_start: {fileID: 8300000, guid: 58009039f4bf1664eaa58534d5b00b4a, type: 3}
+  shootsound_continue: {fileID: 0}
+  shootsound_end: {fileID: 0}
+  tracer_enabled: 0
+  rarity_lvl_3_magsize: 14
+  rarity_lvl_4_damage: 4000
+  rarity_lvl_5_damage: 6000
