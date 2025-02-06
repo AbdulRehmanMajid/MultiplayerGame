@@ -43,11 +43,11 @@ public class ExplosionBall : NetworkBehaviour
     {
     has_hit = true;
     Collider[] colliders = Physics.OverlapSphere(transform.position,explosion_Radius);
-    foreach(Collider kebab in colliders)
+    foreach(Collider coll in colliders)
     {
-        if(kebab.GetComponent<zom_critical>() !=null)
+        if(coll.GetComponent<zom_critical>() !=null)
     {
-        kebab.GetComponent<zom_critical>().CriticalDamageServerRpc(damage,attackerid.ToString(),true);
+        coll.GetComponent<zom_critical>().CriticalDamageServerRpc(damage,attackerid.ToString(),true);
         
 
     }

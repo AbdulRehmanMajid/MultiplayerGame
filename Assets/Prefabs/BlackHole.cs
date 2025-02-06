@@ -15,7 +15,7 @@ public class BlackHole : NetworkBehaviour
     public GameObject electic_arc;
     public float time = 100f;
   
-    //public arc_data_holder kebab;
+    
     
 
     // Update is called once per frame

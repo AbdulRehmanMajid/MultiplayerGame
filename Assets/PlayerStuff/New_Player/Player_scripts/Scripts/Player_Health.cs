@@ -164,8 +164,7 @@ public class Player_Health : NetworkBehaviour
   {
     Debug.LogWarning($"RPC reached");
     Debug.LogWarning("Chars name change client is called");
-    //Username.text = "Charsi" + OwnerClientId;
-    //changeclientnameClientRpc("Charsi"+ OwnerClientId);
+    
     changeclientnameClientRpc(UserName);
     UsernameText.text = UserName;
     

@@ -23,7 +23,7 @@ public class shoot_spawn : NetworkBehaviour
     public bool is_running = false;
     float base_health = 0;
     int i;
-    int fruit;
+    int temp_var;
     int j;
     public bool debug_testing = false;
    
@@ -112,8 +112,8 @@ public class shoot_spawn : NetworkBehaviour
         }
         
 
-        fruit = j;
-        code_backup(fruit);
+       temp_var = j;
+        code_backup(temp_var);
       
         
     

@@ -24,8 +24,8 @@ public class Main_teammate_ui_manager : NetworkBehaviour
         if(test.GetAllPlayers().Length != Old_player_count)
         {
             Old_player_count = test.GetAllPlayers().Length;
-            Player_Health [] kebab = test.GetAllPlayers();
-            foreach(Player_Health player in kebab)
+            Player_Health [] players = test.GetAllPlayers();
+            foreach(Player_Health player in players)
             {
                 if(player.NetworkObjectId != my_player_health.NetworkObjectId)
                 {

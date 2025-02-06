@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 7322605477440578949}
   - component: {fileID: 8049221816532463762}
   m_Layer: 0
-  m_Name: Skin_Penguin_wrokin_near_optimize_test
+  m_Name: Main_player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

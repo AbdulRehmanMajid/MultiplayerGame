@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode.Components;
-public class fruitKebab : NetworkAnimator
+public class Override_animator : NetworkAnimator
 {
      
         protected override bool OnIsServerAuthoritative()

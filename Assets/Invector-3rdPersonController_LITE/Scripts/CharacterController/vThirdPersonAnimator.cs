@@ -95,21 +95,21 @@ namespace Invector.vCharacterController
 
             if (speed.walkByDefault)
             {
-                float fruit = Mathf.Clamp(newInput.magnitude, 0, isSprinting ? runningSpeed : walkSpeed);
-               inputMagnitude = fruit;
+                float def_speed = Mathf.Clamp(newInput.magnitude, 0, isSprinting ? runningSpeed : walkSpeed);
+               inputMagnitude = def_speed;
                 
             }
             else
             {
-                float fish = Mathf.Clamp(isSprinting ? newInput.magnitude + 0.5f : newInput.magnitude, 0, isSprinting ? sprintSpeed : runningSpeed);
+                float clamp = Mathf.Clamp(isSprinting ? newInput.magnitude + 0.5f : newInput.magnitude, 0, isSprinting ? sprintSpeed : runningSpeed);
                 
-                if(fish < 0)
+                if(clamp < 0)
                 {
                    inputMagnitude = 0;
                 }
                 else
                 {
-                    inputMagnitude = fish;
+                    inputMagnitude = clamp;
                 }
 
                 
