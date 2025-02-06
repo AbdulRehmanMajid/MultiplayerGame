@@ -56,10 +56,10 @@ public class test : MonoBehaviour
     //     GUILayout.EndArea();
     // }
 
-    void Update()
-    {
+    //void Update()
+   // {
         
-    }
+    //}
 
 
     public static Player_Health[] GetAllPlayers ()
