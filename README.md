@@ -15,7 +15,7 @@ This is a Multiplayer game i developed in my free time via Unity using Netcode f
 - Zombies 
 
 ## TODO
-- Improve review mechanics
+- Improve revive mechanics
 - Add story and setting
 - Improve Zombie Ai
 - Improve Client sync
