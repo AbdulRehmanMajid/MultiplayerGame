@@ -109,8 +109,8 @@ public class gunMangerV2 : NetworkBehaviour
      public override void OnNetworkSpawn()
      {
         if(!IsOwner)return;
-        Slot1_gun_id.OnValueChanged += Change_other_slot1;
-         Slot2_gun_id.OnValueChanged += Change_other_slot2;
+       // Slot1_gun_id.OnValueChanged += Change_other_slot1;
+        // Slot2_gun_id.OnValueChanged += Change_other_slot2;
 
 
 
@@ -148,8 +148,26 @@ public class gunMangerV2 : NetworkBehaviour
 
         
     }
-     void Change_other_slot1(int old_val, int new_val)
+    [ServerRpc(RequireOwnership = false)]
+    void Set_rarity_ServerRpc(int slot)
+    {
+        if (slot == 1)
+        {
+             Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
+                    Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
+        }
+        if (slot == 2)
+        {
+             Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
+                    Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
+        }
+        
+
+    }
+
+     void Change_other_slot()
      {
+        
         if(current_slot == 1)
         {
             if(gun_pick_script!= null)
@@ -165,29 +183,23 @@ public class gunMangerV2 : NetworkBehaviour
                 Slot1_gun = gun_to_change;
                 if(Slot1_gun.GetComponent<Rarity_and_level>()!=null)
                 {
-                    Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
-                    Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
+                   Set_rarity_ServerRpc(current_slot);
                       Slot1_gun.GetComponent<Rarity_and_level>().Check_Rarity();           
                            }
                 
                 gun_to_change = null;
-                gun_to_destroy.Kill_gun_ServerRpc();
-            
+              //  gun_to_destroy.Kill_gun_ServerRpc();
+               Set_SlotID_ServerRpc(1,gun_pick_script.Gun_id);
                 ChangeGun_ServerRpc(1);
-                //ChangeGun_ClientRpc(1);
+
                 
-                // ChangeGun_ClientRpc(1);
                
                 }
             
     }
 
         }
-
-     }
-      void Change_other_slot2(int old_val, int new_val)
-     {
-        if(current_slot == 2)
+         if(current_slot == 2)
         {
             if(gun_pick_script!= null)
     {
@@ -201,17 +213,15 @@ public class gunMangerV2 : NetworkBehaviour
                 Slot2_gun = gun_to_change;
                 if(Slot2_gun.GetComponent<Rarity_and_level>()!=null)
                 {
-                    Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
-                    Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
+                    Set_rarity_ServerRpc(current_slot);
                       Slot2_gun.GetComponent<Rarity_and_level>().Check_Rarity();           
                            }
                 
                 gun_to_change = null;
-                gun_to_destroy.Kill_gun_ServerRpc();
+              //  gun_to_destroy.Kill_gun_ServerRpc();
+              Set_SlotID_ServerRpc(2,gun_pick_script.Gun_id);
                 ChangeGun_ServerRpc(2);
-                //ChangeGun_ClientRpc(1);
                 
-                // ChangeGun_ClientRpc(1);
                
                 }
             
@@ -220,6 +230,7 @@ public class gunMangerV2 : NetworkBehaviour
         }
 
      }
+      
     #region Guns
     void GetGuns(int id)
     {
@@ -293,6 +304,71 @@ public class gunMangerV2 : NetworkBehaviour
         }
     }
     #endregion
+    void swapgun()
+    {
+        gunPickUp_text.text = "";
+           can_buy = false;
+           
+        if(gun_pick_script != null)
+        {
+            
+            if(current_slot == 1 && Slot1_gun_id.Value != 0 && Slot1_gun != null)
+                {
+                     stop_audio();
+                    if(Slot1_gun.GetComponent<Rarity_and_level>() != null)
+                    {
+                        Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value,Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value,Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
+
+                    }
+                    else
+                    {
+                           Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value,0,0);
+
+
+                    }
+                    Set_SlotID_ServerRpc(1,gun_pick_script.Gun_id);
+                }
+                    if(current_slot == 2 && Slot2_gun_id.Value != 0 && Slot2_gun != null)
+                {
+                     stop_audio();
+                    if(Slot2_gun.GetComponent<Rarity_and_level>() != null)
+                    {
+                        Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value,Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value,Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
+
+                    }
+                    else
+                    {
+                           Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value,0,0);
+
+
+                    }
+                    
+                    DropGun_ServerRpc();
+                   
+                     Set_SlotID_ServerRpc(2,gun_pick_script.Gun_id);
+                    
+                }
+                
+                Change_other_slot();
+
+                gun_pick_script.Kill_gun_ServerRpc();
+            
+        
+//DropGun_ServerRpc();
+                    
+                    
+                    // Set_SlotID_ServerRpc(1,gun_pick_script.Gun_id);
+                    
+                   
+              
+                    
+
+                
+                
+        }
+        
+
+    }
     #region UpdateLoop
     void Update()
     {
@@ -381,68 +457,35 @@ public class gunMangerV2 : NetworkBehaviour
         
         if(can_buy && in_pickup_range && gun_pick_script != null)
         {
-        //   GetGun_ServerRpc();
-        
-        if(gun_pick_script.Gun_id != Slot1_gun_id.Value && gun_pick_script.Gun_id != Slot2_gun_id.Value)
+        swapgun();
+        /*if(current_slot == 1)
+        {
+        if(gun_pick_script.Gun_id != Slot1_gun_id.Value)
      
             Set_SlotID_ServerRpc(current_slot,gun_pick_script.Gun_id);
-           
+            
+            Change_other_slot();
+            
+           Debug.LogError("picking up from update loop");
         
         gunPickUp_text.text = "";
            can_buy = false;
+        }
+        if(current_slot == 2)
+        {
+            if(gun_pick_script.Gun_id != Slot2_gun_id.Value)
+            {
+                Change_other_slot();
+            }
+        }
+        */
         
         
         }
         
+        
 
-            if(Input.GetKeyDown(KeyCode.G))
-            {
-                if(current_slot == 1&& Slot1_gun != null && Slot1_gun_id.Value != 0)
-                {
-                     stop_audio();
-                    if(Slot1_gun.GetComponent<Rarity_and_level>() != null)
-                    {
-                        Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value,Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value,Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
-
-                    }
-                    else
-                    {
-                           Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value,0,0);
-
-
-                    }
-                    DropGun_ServerRpc();
-                    
-                    
-                     Set_SlotID_ServerRpc(1,0);
-                    
-                   
-              
-                    
-
-                }
-                if(current_slot == 2 && Slot2_gun != null && Slot2_gun_id.Value != 0)
-                {
-                     stop_audio();
-                    if(Slot2_gun.GetComponent<Rarity_and_level>() != null)
-                    {
-                        Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value,Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value,Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
-
-                    }
-                    else
-                    {
-                           Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value,0,0);
-
-
-                    }
-                    DropGun_ServerRpc();
-                   
-                     Set_SlotID_ServerRpc(2,0);
-                    
-                }
-                 
-                
-            }
+            
 
 }
 #endregion
@@ -474,75 +517,9 @@ void DropGun_ClientRpc()
                    
                 }
 }
-[ServerRpc(RequireOwnership = false)]
-void GetGun_ServerRpc()
-{
-//GetGun_ClientRpc();
-}
-[ClientRpc]
-void GetTemp_ClientRpc()
-{
-Set_SlotID_ServerRpc(current_slot,gun_pick_script.Gun_id);
-}
-[ClientRpc]
-void GetGun_ClientRpc()
-{
-    if(gun_pick_script!= null)
-    {
-     if(current_slot == 1&& Slot1_gun == null && gun_pick_script.Gun_id != Slot1_gun_id.Value && gun_pick_script.Gun_id != Slot2_gun_id.Value)
-            {
-                
-               
-                gun_to_destroy = gun_pick_script;
-                Set_SlotID_ServerRpc(current_slot,gun_pick_script.Gun_id);
-               
-                GetGuns(gun_pick_script.Gun_id);
-                Slot1_gun = gun_to_change;
-                if(Slot1_gun.GetComponent<Rarity_and_level>()!=null)
-                {
-                    Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
-                    Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
-                      Slot1_gun.GetComponent<Rarity_and_level>().Check_Rarity();           
-                           }
-                
-                gun_to_change = null;
-                StartCoroutine(change_gun_timed(1));
-                //ChangeGun_ClientRpc(1);
-                
-                // ChangeGun_ClientRpc(1);
-               
-                
-                
-                
-                
-            }
-            if(current_slot == 2 && Slot2_gun == null && gun_pick_script.Gun_id != Slot2_gun_id.Value && gun_pick_script.Gun_id != Slot1_gun_id.Value)
-            {
-              
-                 gun_to_destroy = gun_pick_script;
-                if(gun_pick_script!=null)
-                {
-                 Set_SlotID_ServerRpc(current_slot,gun_pick_script.Gun_id);
-                
-                GetGuns(gun_pick_script.Gun_id);
-                Slot2_gun = gun_to_change;
-                if(Slot2_gun.GetComponent<Rarity_and_level>()!=null)
-                {
-                    Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value = gun_pick_script.gun_data.Gun_level.Value;
-                      Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value = gun_pick_script.gun_data.Rareity_level.Value;
-                       Slot2_gun.GetComponent<Rarity_and_level>().Check_Rarity();    
-                }
-                gun_to_change = null;
-                 StartCoroutine(change_gun_timed(2));
-              //  ChangeGun_ClientRpc(2);
-                
-               // ChangeGun_ClientRpc(2);
-               
-                }
 
-            }
-    }
-}
+
+
 [ServerRpc(RequireOwnership = false)]
 void ChangeGun_ServerRpc(int number)
 {
@@ -573,6 +550,7 @@ void Disable_guns()
 
      void ChangeGun_slot(int number)
         {
+            
             Disable_guns();
 
                    GameObject gun = null;
@@ -768,19 +746,9 @@ void Set_SlotID_ServerRpc(int slot_number,int id)
     {
         Slot2_gun_id.Value = id;
     }
+    Debug.LogError("picking up from SlotID Server Rpc");
 }
-IEnumerator change_gun_timed(int number)
-{
 
-    yield return null;
-    if(gun_to_destroy!=null)
-    {
-    ChangeGun_ServerRpc(number);
-    
-    gun_to_destroy.Kill_gun_ServerRpc();
-    }
-    
-}
 IEnumerator wait_for_anim(float animationtime,int number)
 {
   aim_Transitioner.p_anim.Play("Put_away");

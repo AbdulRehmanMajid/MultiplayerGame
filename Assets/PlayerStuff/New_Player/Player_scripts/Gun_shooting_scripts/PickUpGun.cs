@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 public class PickUpGun : NetworkBehaviour
 {
+    
     public GameObject gun_to_pick;
     public PickUpGun my_pickupScript;
     
@@ -46,10 +47,14 @@ public class PickUpGun : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void Kill_gun_ServerRpc()
     {
-        Destroy(gun_to_pick);
-        kill_ClientRpc();
+        //Destroy(gun_to_pick);
+        gun_to_pick.GetComponent<NetworkObject>().Despawn(true);
+        Debug.LogError("Killing");
+
+       // kill_ClientRpc();
 
     }
+
     [ClientRpc]
     void kill_ClientRpc()
     {
