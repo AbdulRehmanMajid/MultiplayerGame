@@ -47,6 +47,7 @@ public class Player_Health : NetworkBehaviour
 
     public Transform score_feed_panel;
     public GameObject score_feed_item;
+    public GameObject active_score_feed;
     public Transform medal_feed_panel;
     public GameObject medal_item;
     public GameObject one_shot_medal;
@@ -492,7 +493,21 @@ public class Player_Health : NetworkBehaviour
          xp_Track.Text.fontSize = xp_Track.def_size;
         xp_Track.do_anim();
     }
-    Instantiate(score_feed_item,score_feed_panel); 
+    if(!active_score_feed)
+    {
+    active_score_feed = Instantiate(score_feed_item,score_feed_panel); 
+    }
+    else
+    {
+        if(active_score_feed.GetComponent<score_feed_ui_item>().elapsedtime>0)
+        {
+            active_score_feed.GetComponent<score_feed_ui_item>().Increase();
+        }
+        else
+        {
+            active_score_feed = Instantiate(score_feed_item,score_feed_panel); 
+        }
+    }
     if(!was_explosive)
     {
     player_audio_source.PlayOneShot(killeffect);

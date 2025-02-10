@@ -9,11 +9,41 @@ public class score_feed_ui_item : MonoBehaviour
     // Start is called before the first frame update
     public TextMeshProUGUI text;
     public float font_size;
+    public int kill_streak;
+   
+    public float life_time = 3f;
+    public float elapsedtime;
     
     void Start()
     {
-        Invoke("shrink",0.05f);
-       Invoke("fade",0.35f);
+         Invoke("shrink",0.05f);
+        StartCoroutine(lifetime());
+        
+    }
+    public void Increase()
+    {
+        elapsedtime = life_time;
+        kill_streak += 1;
+        text.text = "+90 Zombie Kill X" +kill_streak; 
+    }
+    IEnumerator lifetime()
+    {
+        Debug.LogError("runnning");
+        elapsedtime = life_time;
+        while(elapsedtime > 0)
+        {
+            
+          
+
+            elapsedtime -= Time.deltaTime;
+            yield return null;
+        }
+        if(elapsedtime <0)
+        {
+         
+       fade();
+        }
+       
     }
     void shrink()
     {
