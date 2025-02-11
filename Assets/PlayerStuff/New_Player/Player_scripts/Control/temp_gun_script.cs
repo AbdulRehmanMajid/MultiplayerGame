@@ -399,30 +399,37 @@ public class temp_gun_script : NetworkBehaviour
         Gun_stuff.playeraudio.PlayOneShot(hitmarker_data.hitmarkersounds[num]);
     }
 
+    // Fixed travel time for tracers regardless of distance.
+    private const float tracerTravelTime = 0.2f; 
+
     IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
     {
-        float time = 0;
-        Vector3 start_pos = attackPoint_hip.position;
-        while (time < 1)
+        float time = 0f;
+        Vector3 startPos = attackPoint_hip.position;
+        while (time < tracerTravelTime)
         {
-            trail.transform.position = Vector3.Lerp(start_pos, hit.point, time);
-            time += Time.deltaTime / trail.time;
+            float t = time / tracerTravelTime;
+            trail.transform.position = Vector3.Lerp(startPos, hit.point, t);
+            time += Time.deltaTime;
             yield return null;
         }
-        Destroy(trail.gameObject, trail.time);
+        trail.transform.position = hit.point;
+        Destroy(trail.gameObject, tracerTravelTime);
     }
 
     IEnumerator SpawnTrail_client(TrailRenderer trail, Vector3 hit)
     {
-        float time = 0;
-        Vector3 start_pos = trail.transform.position;
-        while (time < 1)
+        float time = 0f;
+        Vector3 startPos = trail.transform.position;
+        while (time < tracerTravelTime)
         {
-            trail.transform.position = Vector3.Lerp(start_pos, hit, time);
-            time += Time.deltaTime / trail.time;
+            float t = time / tracerTravelTime;
+            trail.transform.position = Vector3.Lerp(startPos, hit, t);
+            time += Time.deltaTime;
             yield return null;
         }
-        Destroy(trail.gameObject, trail.time);
+        trail.transform.position = hit;
+        Destroy(trail.gameObject, tracerTravelTime);
     }
 
     [ServerRpc(RequireOwnership = false)]
