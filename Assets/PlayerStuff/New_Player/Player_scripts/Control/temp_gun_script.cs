@@ -12,6 +12,7 @@ using UnityEngine.VFX;
 
 public class temp_gun_script : NetworkBehaviour
 {
+    
     public Rifle_Data gun_data;
     public HitMarker_Sounds hitmarker_data;
     public Rarity_and_level level_and_rarity;
@@ -528,6 +529,23 @@ bool set_server_continue_fire = false;
                 {
                     rayHit.collider.GetComponent<shoot_spawn>().spawn_zom_ServerRpc();
 
+                }
+                if(Gun_stuff.pvp)
+                {
+                if(rayHit.collider.GetComponent<Player_Health>() !=null)
+                {
+                    Player_Health p_health =  rayHit.collider.GetComponent<Player_Health>();
+                    if(p_health != this.Gun_stuff.myhealthscript)
+                    {
+                        GameObject popup = Instantiate(Damage_popup,rayHit.point,Damage_popup.transform.rotation);
+                        billboarder pop_bill = popup.GetComponent<billboarder>();
+                pop_bill.camera = Gun_stuff.fpsCam.transform;
+                pop_bill.target = rayHit.collider.gameObject;
+                pop_bill.damage_Text.text = (damage / 9).ToString();
+                    p_health.TakeDamagePlayer_ServerRpc(damage / 9);
+                    }
+
+                }
                 }
             if(rayHit.collider.GetComponent<zom_critical>() !=null)
                 {

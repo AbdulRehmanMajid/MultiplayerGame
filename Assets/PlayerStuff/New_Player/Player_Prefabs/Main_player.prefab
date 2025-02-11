@@ -596,7 +596,7 @@ MonoBehaviour:
   cam_recoil: {fileID: 5009048301451662423}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 4288
+    m_Bits: 4289
 --- !u!1 &1193195750530433691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,6 +5365,7 @@ MonoBehaviour:
   score_feed_panel: {fileID: 984471759632938988}
   score_feed_item: {fileID: 1005359251955304971, guid: ef00c3afed7091c459424b599b1dcb96,
     type: 3}
+  active_score_feed: {fileID: 0}
   medal_feed_panel: {fileID: 5058310416296405998}
   medal_item: {fileID: 2310993347107313045, guid: e10ab39fc55115f4787b410d495fa640,
     type: 3}
@@ -5419,6 +5420,9 @@ MonoBehaviour:
     type: 3}
   xp_panel: {fileID: 7076192319006844773}
   max_kill_elapsed_time: 3
+  non_enemy_mask:
+    serializedVersion: 2
+    m_Bits: 4194304
 --- !u!82 &6769718767728840330
 AudioSource:
   m_ObjectHideFlags: 0

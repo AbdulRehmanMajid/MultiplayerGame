@@ -41,7 +41,7 @@ TagManager:
   - camera_cull
   - Player_body
   - body
-  - 
+  - non_enemy
   - 
   - 
   - 

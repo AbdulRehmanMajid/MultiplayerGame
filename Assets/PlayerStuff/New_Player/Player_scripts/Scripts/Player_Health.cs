@@ -7,6 +7,7 @@ using Unity.Collections;
 using System.IO;
 using TMPro;
 using Invector.vCharacterController;
+using Unity.VisualScripting;
 
 
 public class Player_Health : NetworkBehaviour
@@ -101,6 +102,9 @@ public class Player_Health : NetworkBehaviour
     public Transform xp_panel;
     Xp_tracker xp_Track;
     public float max_kill_elapsed_time = 3f;
+    public LayerMask non_enemy_mask;
+
+
 
 
 
@@ -111,6 +115,7 @@ public class Player_Health : NetworkBehaviour
         
         if(!IsOwner)return;
         //Mobile_controls.SetActive(false);
+        //this.gameObject.layer = LayerMask.NameToLayer("non_enemy");
         if(IsLocalPlayer  && Application.platform == RuntimePlatform.Android)
         {
             Mobile_controls.SetActive(true);
@@ -327,6 +332,61 @@ public class Player_Health : NetworkBehaviour
     
     [ClientRpc]
     void do_death_zombie_ClientRpc()
+    {
+        
+       // myMouseLookScript.is_active = false;
+        p_collider.excludeLayers = ignore_collsion;
+        spec_cam_script.set_main_cam(false);
+        spec_cam_script.spectate_text.text = "";
+        Die();
+     
+        
+    }
+     [ServerRpc(RequireOwnership = false)]
+    public void TakeDamagePlayer_ServerRpc(float amount)
+    {
+        Regen_timer_set_ClientRpc();
+        
+        if(Is_alive.Value == true)
+        {
+        
+        HealthBar.value = Healthe.Value / max_healthe.Value;
+        
+        Healthe.Value -= amount;
+        Debug.LogError(Healthe.Value);
+        Debug.LogWarning(Healthe.Value / max_healthe.Value);
+        HealthBar.value = Healthe.Value / max_healthe.Value;
+        hp.text = Healthe.Value.ToString();
+        
+        if(Healthe.Value <= 0)
+        {
+            
+           
+         
+            
+            HealthBar_object.SetActive(false);
+            revive_icon.SetActive(true);
+            Is_alive.Value = false;
+            do_death_player_ClientRpc();
+            
+           
+            
+            
+
+           
+        }
+        }
+        
+
+    }
+   
+    
+   
+    
+    
+    
+    [ClientRpc]
+    void do_death_player_ClientRpc()
     {
         
        // myMouseLookScript.is_active = false;

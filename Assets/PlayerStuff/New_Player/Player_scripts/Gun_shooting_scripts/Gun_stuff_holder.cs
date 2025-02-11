@@ -14,6 +14,6 @@ public class Gun_stuff_holder : MonoBehaviour
      public Animator hitmark_anim;
       public RecoilNew cam_recoil;
       public LayerMask whatIsEnemy;
-     
+     public bool pvp = false;
 
 }
