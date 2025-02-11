@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Cam_look_at : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject player;
     public bool is_dead;
     private quaternion def_pos;
@@ -18,48 +17,38 @@ public class Cam_look_at : MonoBehaviour
     void Start()
     {
         def_pos = transform.localRotation;
-        StartCoroutine(aim_assist());
-
+        StartCoroutine(AimAssistCoroutine());
     }
    
-
-    // Update is called once per frame
     void Update()
     {
-        if(is_dead)
+        // When dead, look at the player.
+        if (is_dead && player != null)
         {
             transform.LookAt(player.transform.position);
         }
-        if(assist_type_2)
+
+        // When using assist type 2, smoothly rotate towards the aim assist target.
+        if (assist_type_2 && Aim_assist_target != null)
         {
-         
-        Vector3 dir = Aim_assist_target.transform.position - transform.position;
-       // dir.y = 0f;
-        Quaternion lookrot = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.Lerp(transform.rotation,lookrot,Time.deltaTime * Aim_assist_speed);
-   }
- 
-        
-       
-  
-        
-        
-        
-        
-        
+            Vector3 direction = Aim_assist_target.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * Aim_assist_speed);
+        }
     }
-    IEnumerator aim_assist()
+
+    IEnumerator AimAssistCoroutine()
     {
-        while(true)
+        while (true)
         {
-             if(Aim_assist && Aim_assist_target != null)
-        {
-              transform.LookAt(Aim_assist_target.transform.position);
-       
-        }
-        yield return new WaitForSeconds(assis_delay);
+            if (Aim_assist && Aim_assist_target != null)
+            {
+                transform.LookAt(Aim_assist_target.transform.position);
+            }
+            yield return new WaitForSeconds(assis_delay);
         }
     }
+
     public void Isalive()
     {
         transform.localRotation = def_pos;

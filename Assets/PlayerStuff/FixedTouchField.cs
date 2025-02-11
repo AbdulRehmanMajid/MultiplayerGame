@@ -12,32 +12,51 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     protected int PointerId;
     [HideInInspector]
     public bool Pressed;
+
     public UICanvasControllerInput mobile_input;
     public float senstivity_x = 1f;
     public float senstivity_y = 1f;
+    public float gyroSensitivity = 1f;
 
-    // Use this for initialization
-    
+    void Start()
+    {
+        
+        if (SystemInfo.supportsGyroscope)
+        {
+            Input.gyro.enabled = true;
+        }
+    }
 
-    // Update is called once per frame
     void Update()
     {
-       if (Pressed)
+        Vector2 touchLook = Vector2.zero;
+        if (Pressed)
         {
-            
+        
             if (PointerId >= 0 && PointerId < Input.touches.Length)
             {
                 TouchDist = Input.touches[PointerId].position - PointerOld;
                 PointerOld = Input.touches[PointerId].position;
+                touchLook = new Vector2(TouchDist.x * senstivity_x, -TouchDist.y * senstivity_y);
             }
-           
         }
         else
         {
-            TouchDist = new Vector2();
+           
+            TouchDist = Vector2.zero;
         }
-        Vector2 inverted = new Vector2(TouchDist.x * senstivity_x,-TouchDist.y * senstivity_y);
-        mobile_input.VirtualLookInput(inverted);
+
+       
+        Vector2 gyroLook = Vector2.zero;
+        if (SystemInfo.supportsGyroscope)
+        {
+            
+            gyroLook = new Vector2(-Input.gyro.rotationRateUnbiased.y, -Input.gyro.rotationRateUnbiased.x) * gyroSensitivity;
+        }
+
+        
+        Vector2 combinedInput = touchLook + gyroLook;
+        mobile_input.VirtualLookInput(combinedInput);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -47,10 +66,8 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         PointerOld = eventData.position;
     }
 
-
     public void OnPointerUp(PointerEventData eventData)
     {
         Pressed = false;
     }
-    
 }

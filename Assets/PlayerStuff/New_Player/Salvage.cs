@@ -2,25 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+
 public class Salvage : NetworkBehaviour
 {
     public GameObject salvage;
     public GameObject mesh;
     public int Value;
-    
-    public void OnTriggerEnter(Collider other)
+
+    private MeshRenderer meshRenderer;
+    private NetworkObject salvageNetworkObject;
+
+    void Start()
     {
-       
-        if(other.GetComponent<Player_Health>())
-        {
-            mesh.GetComponent<MeshRenderer>().enabled =false;
-            if(!IsServer)return;
-            salvage.GetComponent<NetworkObject>().Despawn(true);
-            other.GetComponent<Player_Health>().money_man.Salvage.Value += Value;
-          
-        }
+        if (mesh != null)
+            meshRenderer = mesh.GetComponent<MeshRenderer>();
+        if (salvage != null)
+            salvageNetworkObject = salvage.GetComponent<NetworkObject>();
     }
 
-    
-    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Player_Health>(out Player_Health playerHealth))
+        {
+            if (meshRenderer != null)
+                meshRenderer.enabled = false;
+
+            if (!IsServer)
+                return;
+
+            if (salvageNetworkObject != null)
+                salvageNetworkObject.Despawn(true);
+
+            playerHealth.money_man.Salvage.Value += Value;
+        }
+    }
 }

@@ -5,11 +5,10 @@ using Unity.Netcode;
 using TMPro;
 using StarterAssets;
 using UnityEngine.UI;
-using Unity.Mathematics;
-
 
 public class Revive_Script_player : NetworkBehaviour
 {
+    #region Public Fields
     public Revive_Script revive_Script;
     public TextMeshProUGUI revive_text;
     public bool reviving;
@@ -20,137 +19,130 @@ public class Revive_Script_player : NetworkBehaviour
     public float Distance = 3f;
     public float revive_time_limit = 10f;
     public float smooth_rev = 0f;
-
     public Slider rev_progress;
     public GameObject rev_progressHolder;
-    
+    #endregion
 
-    
-
-    // Update is called once per frame
+    #region Unity Methods
     void Update()
     {
-        if(!IsOwner)return;
-        if(reviveTimer>0&& reviveTimer<revive_time_limit +1f)
+        if (!IsOwner) return;
+        
+        // If no valid revive_Script exists, disable UI & reset revive state.
+        if (revive_Script == null)
         {
-        smooth_rev +=Time.deltaTime;
-        if(rev_progressHolder.activeSelf)
-        {
-        rev_progress.value = smooth_rev/(revive_time_limit-1f);
-        }
-        }
-        if(revive_Script == null)
-        {
-
-            rev_progressHolder.SetActive(false);
-            
-            reviving=false;
-                p_animator.SetBool("Reviveing",false);
-        }
-       
-       
-        if(revive_Script != null)
-        {
-            rev_progressHolder.SetActive(true);
-           revive_text.text = "Revive Player";
-           
-           
-            
-            if(!revive_Script.p_Health.Is_alive.Value)
-            {
-                if(other_collider!=null)
-                {
-                    float lol = Vector3.Distance(this.gameObject.transform.position,other_collider.transform.position);
-                    Debug.LogError(lol);
-                    if(lol>Distance)
-                    {
-                        revive_Script = null;
-                         CancelInvoke("Increasce_Time");
-                reviveTimer = 0f;
-                reviving=false;
-                p_animator.SetBool("Reviveing",false);
-                    }
-                }
-            
-            if(Input.GetKey(KeyCode.F))
-            {
-                
-                if(!reviving)
-                {
-                     
-                    reviving=true;
-                     p_animator.SetBool("Reviveing",true);
-                     p_animator.Play("Revive");
-                    
-
-                Invoke("Increasce_Time",1f);
-
-                }
-               
-              
-                
-            }
-            else
-            {
-                rev_progress.value = 0;
-                CancelInvoke("Increasce_Time");
-                reviveTimer = 0f;
-                smooth_rev = 0f;
-                reviving=false;
-                p_animator.SetBool("Reviveing",false);
-            }
-            if(reviveTimer >= revive_time_limit)
-                {
-                    Debug.LogWarning("Reveieeeeeeeeeeeeeeeeeee");
-                    revive_Script.p_Health.Alive_ServerRpc();
-                    rev_progress.value = 0;
-                     revive_text.text = "";
-                     rev_progressHolder.SetActive(false);
-                     revive_Script = null;
-                     p_animator.SetBool("Reviveing",false);
-                     reviveTimer = 0f;
-
-
-                   
-                }
-            
-            }
-            else
-            {
-                revive_Script = null;
-                reviveTimer = 0f;
-                
-                
-
-            }
-         //   if(revive_Script != null)
-         //   {
-          //   if(Vector3.Distance(revive_Script.transform.position,this.transform.position)>10)
-         //   {
-          //      revive_Script = null;
-           //     revive_text.text = "";
-           //     reviveTimer = 0f;
-           //    reviving = false;
-            //    p_animator.SetBool("Reviveing",false);
-            //    return;
-                
-
-           // }
-          //  }
-            
-            
-            
-
-
+            DisableRevive();
+            return;
         }
         
-    }
-    void Increasce_Time()
-    {
-        if(revive_Script!=null)
+        // Activate revive UI and set initial text.
+        rev_progressHolder.SetActive(true);
+        revive_text.text = "Revive Player";
+        
+        // If the target player is not alive.
+        if (!revive_Script.p_Health.Is_alive.Value)
         {
-        reviveTimer+=1;
-        reviving = false;
+            // Check distance between this player and the target's collider.
+            if (other_collider != null)
+            {
+                float dist = Vector3.Distance(transform.position, other_collider.position);
+                Debug.LogError(dist);
+                if(dist > Distance)
+                {
+                    revive_Script = null;
+                    ResetRevive();
+                    return;
+                }
+            }
+            
+            // Process user input for reviving.
+            if (Input.GetKey(KeyCode.F))
+            {
+                if (!reviving)
+                {
+                    reviving = true;
+                    p_animator.SetBool("Reviveing", true);
+                    p_animator.Play("Revive");
+                    Invoke("Increasce_Time", 1f);
+                }
+            }
+            else
+            {
+                ResetRevive();
+            }
+            
+            // Revive complete – execute revive actions.
+            if (reviveTimer >= revive_time_limit)
+            {
+                Debug.LogWarning("Reveieeeeeeeeeeeeeeeeeee");
+                revive_Script.p_Health.Alive_ServerRpc();
+                ResetRevive();
+                revive_text.text = "";
+                rev_progressHolder.SetActive(false);
+                revive_Script = null;
+                return;
+            }
+        }
+        else // If target is alive, cancel revive.
+        {
+            revive_Script = null;
+            ResetRevive();
+        }
+        
+        // Update progress slider if revive is underway.
+        if (reviveTimer > 0 && reviveTimer < revive_time_limit + 1f && rev_progressHolder.activeSelf)
+        {
+            smooth_rev += Time.deltaTime;
+            rev_progress.value = smooth_rev / (revive_time_limit - 1f);
         }
     }
+    #endregion
+
+    #region Helper Methods
+    /// <summary>
+    /// Increases the revive timer by 1 second (Invoked repeatedly while F key is held).
+    /// </summary>
+    void Increasce_Time()
+    {
+        if (revive_Script != null)
+        {
+            reviveTimer += 1f;
+            reviving = false;
+        }
+    }
+
+    /// <summary>
+    /// Resets revive-related variables and cancels any pending invokes.
+    /// </summary>
+    void ResetRevive()
+    {
+        if (rev_progress != null)
+            rev_progress.value = 0f;
+        
+        CancelInvoke(nameof(Increasce_Time));
+
+        reviveTimer = 0f;
+        smooth_rev = 0f;
+        reviving = false;
+
+        if (p_animator != null)
+            p_animator.SetBool("Reviveing", false);
+    }
+
+    /// <summary>
+    /// Disables the revive UI and resets the revive state.
+    /// </summary>
+    void DisableRevive()
+    {
+        if (rev_progressHolder != null)
+            rev_progressHolder.SetActive(false);
+
+        reviving = false;
+
+        if (p_animator != null)
+            p_animator.SetBool("Reviveing", false);
+
+        ResetRevive();
+    }
+    #endregion
 }
