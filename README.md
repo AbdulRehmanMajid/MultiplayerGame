@@ -55,7 +55,7 @@ Enter the IP Adress of the Host Game then click on client.
 ![Client](https://s3.gifyu.com/images/b2A1Z.gif)
 
 - ## Note:
-#### I have not generally considered working on UI/UX properly until the game is feature-complete.This process will be streamlined once the game is feature-ready.
+#### I have not generally considered working on UI/UX properly until the game is feature-complete.This process will be streamlined once the game is feature-ready.
 
 
 ## Keybinds
