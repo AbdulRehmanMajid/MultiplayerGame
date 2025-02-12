@@ -2194,6 +2194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 560360083525986645, guid: 17cd12a42942fca4e8e9aadff74f34bc,
+        type: 3}
+      propertyPath: m_text
+      value: Server
+      objectReference: {fileID: 0}
     - target: {fileID: 683737351545903627, guid: 17cd12a42942fca4e8e9aadff74f34bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8606,6 +8611,7 @@ MonoBehaviour:
     m_InternalValue: 1
   Rareity_level:
     m_InternalValue: 1
+  Gun_Name: 
 --- !u!114 &1091492483 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 560360082545981878, guid: 17cd12a42942fca4e8e9aadff74f34bc,

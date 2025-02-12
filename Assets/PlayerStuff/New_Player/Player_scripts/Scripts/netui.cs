@@ -54,6 +54,7 @@ public class netui : MonoBehaviour
          Debug.LogWarning(GetLocalIPAddress());
 
 
+
         if(!File.Exists(path))
         {
             File.WriteAllText(path,"off");
@@ -89,6 +90,7 @@ public class netui : MonoBehaviour
         
        // string con_data =File.ReadAllText(pathe);
        string con_data = GetLocalIPAddress();
+        ip_field.text = con_data;
         transport.SetConnectionData(con_data,8009);
         }
          

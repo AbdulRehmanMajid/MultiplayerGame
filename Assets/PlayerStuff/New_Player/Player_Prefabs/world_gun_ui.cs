@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class world_gun_ui : MonoBehaviour
 {
     public Camera player_cam;
@@ -22,6 +21,7 @@ public class world_gun_ui : MonoBehaviour
 
     void OnEnable()
     {
+        
         // Ensure the UI logic is active upon (re)enable.
         is_active = true;
     }
@@ -42,10 +42,11 @@ public class world_gun_ui : MonoBehaviour
 
     void Update()
     {
+        
         if (player_cam == null)
         {
             world_gun_ui_canvas.SetActive(false);
-           if(GameObject.FindGameObjectWithTag("Self_cam").GetComponent<Camera>() != null)
+           if(GameObject.FindGameObjectWithTag("Self_cam"))
             {
                  Camera cam = GameObject.FindGameObjectWithTag("Self_cam").GetComponent<Camera>();
             
