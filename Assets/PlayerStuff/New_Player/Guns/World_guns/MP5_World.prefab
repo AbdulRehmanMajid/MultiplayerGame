@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8367631394578326615}
   - component: {fileID: 6250117716101877595}
   - component: {fileID: 6096370240028179016}
-  - component: {fileID: 2797549827705344121}
+  - component: {fileID: 4866488672763650860}
   m_Layer: 16
   m_Name: Sphere
   m_TagString: Untagged
@@ -125,7 +125,7 @@ MonoBehaviour:
   gun_pickup_name: Press For MP5
   enable: 1
   gun_data: {fileID: 1216329997766717309}
---- !u!114 &2797549827705344121
+--- !u!114 &4866488672763650860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,10 @@ MonoBehaviour:
   world_gun_ui_canvas: {fileID: 3187575055177610030}
   gun_data: {fileID: 1216329997766717309}
   gun_stuff: {fileID: 3116017646602778729}
-  Gun_Name: MP5
+  Gun_Name: MP4
+  uiVisibleDistance: 9
+  uiRect: {fileID: 4108042661811720818}
+  parentCanvas: {fileID: 859485159382590395}
 --- !u!1 &9077343676706372471
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,15 +259,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7365496507820443760}
     m_Modifications:
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: uiRect
+      value: 
+      objectReference: {fileID: 4108042661811720818}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: Gun_Name
+      value: MP4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: gun_data
+      value: 
+      objectReference: {fileID: 1216329997766717309}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: gun_stuff
+      value: 
+      objectReference: {fileID: 3116017646602778729}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: parentCanvas
+      value: 
+      objectReference: {fileID: 859485159382590395}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: uiVisibleDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: world_gun_ui_canvas
+      value: 
+      objectReference: {fileID: 3187575055177610030}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -289,12 +327,12 @@ PrefabInstance:
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -319,17 +357,17 @@ PrefabInstance:
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -339,7 +377,7 @@ PrefabInstance:
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -361,21 +399,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: world_Gun_ui
       objectReference: {fileID: 0}
-    - target: {fileID: 8018341310206436559, guid: b3867f02890b1a34fba259e3dc92b318,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8018341310206436559, guid: b3867f02890b1a34fba259e3dc92b318,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 0.1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3867f02890b1a34fba259e3dc92b318, type: 3}
+--- !u!223 &859485159382590395 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5734505406677565213, guid: b3867f02890b1a34fba259e3dc92b318,
+    type: 3}
+  m_PrefabInstance: {fileID: 4933851145952730278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2454525972429198544 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
@@ -397,6 +432,12 @@ MonoBehaviour:
 --- !u!1 &3187575055177610030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7513136562887683976, guid: b3867f02890b1a34fba259e3dc92b318,
+    type: 3}
+  m_PrefabInstance: {fileID: 4933851145952730278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4108042661811720818 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9041605666960740052, guid: b3867f02890b1a34fba259e3dc92b318,
     type: 3}
   m_PrefabInstance: {fileID: 4933851145952730278}
   m_PrefabAsset: {fileID: 0}
@@ -798,3 +839,4 @@ MonoBehaviour:
     m_InternalValue: 1
   Rareity_level:
     m_InternalValue: 1
+  Gun_Name: 

@@ -270,82 +270,35 @@ public class temp_zombie_ai : NetworkBehaviour
         }
     }
 
-    // Add a new job struct to calculate a random offset
-    public struct PathOffsetJob : IJob
-    {
-        public float offsetRadius;
-        public uint seed;
-        public NativeArray<float3> offset;
-
-        public void Execute()
-        {
-            Unity.Mathematics.Random random = new Unity.Mathematics.Random(seed);
-            float3 randomOffset = random.NextFloat3Direction() * random.NextFloat(0, offsetRadius);
-            offset[0] = randomOffset;
-        }
-    }
-
     void UpdatePath()
     {
         if (Time.time >= path_update_deadline)
         {
             path_update_deadline = Time.time + path_update_delay;
 
-            // Schedule a job to compute a random offset
-            NativeArray<float3> offsetArray = new NativeArray<float3>(1, Allocator.TempJob);
-            PathOffsetJob offsetJob = new PathOffsetJob
-            {
-                offsetRadius = 3f, // Adjust the radius accordingly
-                seed = (uint)UnityEngine.Random.Range(1, 10000),
-                offset = offsetArray
-            };
-
-            JobHandle jobHandle = offsetJob.Schedule();
-            jobHandle.Complete();  // Wait for the job to finish
-            float3 offset = offsetArray[0];
-            offsetArray.Dispose();
-
-            // Apply the offset on the XZ plane to the player's position
-            Vector3 destination = player.position + new Vector3(offset.x, 0f, offset.z);
+            // Calculate a random offset distance (between 1 and 3 meters).
+            float offsetDistance = UnityEngine.Random.Range(1f, 3f);
+            // Randomly vary the approach angle by up to ±45°.
+            float angleOffset = UnityEngine.Random.Range(-45f, 45f);
+            // Determine the direction from zombie to player.
+            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            // Rotate the direction by the random angle around the Y-axis.
+            Vector3 variedDirection = Quaternion.Euler(0f, angleOffset, 0f) * directionToPlayer;
+            // Compute the new destination as the player's position plus the offset along the varied direction.
+            Vector3 destination = player.position + (variedDirection * offsetDistance);
+            
             zom_ai.SetDestination(destination);
 
-            if (Vector3.Distance(transform.position, player.position) > max_distance ||
+            // Fallback if the zombie gets too far from the player.
+            if (Vector3.Distance(transform.position, player.position) > max_distance || 
                 !player.GetComponent<Player_Health>().Is_alive.Value)
             {
                 lowest_distance = 5000f;
-                Debug.LogError("finding new target");
+                Debug.LogError("Finding new target");
             }
+
             Run_ClientRpc();
         }
-    }
-
-    void UpdateHealthUI()
-    {
-        current_health = Health.Value;
-        float targetValue = Health.Value / max_health.Value;
-        hpbar.value = Mathf.Lerp(hpbar.value, targetValue, lerp_time * Time.deltaTime);
-        if (Mathf.Abs(easehealth_Bar.value - hpbar.value) > 0.001f)
-        {
-            easehealth_Bar.value = Mathf.Lerp(easehealth_Bar.value, hpbar.value, ease_health_speed);
-        }
-    }
-
-    void HandleHpCanvas()
-    {
-        if (show_hp_to_player)
-        {
-            hp_stuff.enabled = true;
-            if (cam_looker.p_cam == null)
-            {
-                cam_looker.p_cam = P_cam;
-            }
-        }
-        else
-        {
-            hp_stuff.enabled = false;
-        }
-        // Reset flag each frame.
-        show_hp_to_player = false;
     }
     #endregion
 
@@ -364,6 +317,39 @@ public class temp_zombie_ai : NetworkBehaviour
             yield return null;
         }
     }
+    void UpdateHealthUI()
+    {
+        current_health = Health.Value;
+        float targetValue = Health.Value / max_health.Value;
+        hpbar.value = Mathf.Lerp(hpbar.value, targetValue, lerp_time * Time.deltaTime);
+        if (Mathf.Abs(easehealth_Bar.value - hpbar.value) > 0.001f)
+        {
+            easehealth_Bar.value = Mathf.Lerp(easehealth_Bar.value, hpbar.value, ease_health_speed);
+        }
+    }
+ #region Hp stuff
+    void HandleHpCanvas()
+    {
+        // Ensure the camera reference is set.
+        if(P_cam == null)
+        {
+            return;
+        }
+        if (cam_looker.p_cam == null)
+        {
+            cam_looker.p_cam = P_cam;
+        }
+        
+        // Compute the direction from the player's camera to the zombie.
+        Vector3 directionToZombie = (transform.position - cam_looker.p_cam.position).normalized;
+        // Calculate how directly the zombie is in front of the camera.
+        float dot = Vector3.Dot(cam_looker.p_cam.forward, directionToZombie);
+        
+        // Enable the health canvas only if the zombie is within a narrow field of view.
+        // Here, a dot product threshold of 0.95 roughly corresponds to ~18° cone.
+        hp_stuff.enabled = dot >= 0.85f;
+    }
+    #endregion
 
     IEnumerator Despawn()
     {

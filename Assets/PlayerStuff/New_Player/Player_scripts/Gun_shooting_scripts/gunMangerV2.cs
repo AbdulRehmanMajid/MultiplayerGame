@@ -402,23 +402,26 @@ public class gunMangerV2 : NetworkBehaviour
         can_buy = false;
         if (gun_pick_script != null)
         {
+            stop_audio();
             if (current_slot == 1 && Slot1_gun_id.Value != 0 && Slot1_gun != null)
             {
-                stop_audio();
                 if (Slot1_gun.GetComponent<Rarity_and_level>() != null)
                     Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value, Slot1_gun.GetComponent<Rarity_and_level>().Gun_level.Value, Slot1_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
                 else
                     Spawn_Gun_world_ServerRpc(Slot1_gun_id.Value, 0, 0);
+                    
+                // Ensure the currently held gun is dropped
+                DropGun_ServerRpc();
                 Set_SlotID_ServerRpc(1, gun_pick_script.Gun_id);
             }
-            else if (current_slot == 2 && 
-                     Slot2_gun_id.Value != 0 && Slot2_gun != null)
+            else if (current_slot == 2 && Slot2_gun_id.Value != 0 && Slot2_gun != null)
             {
-                stop_audio();
                 if (Slot2_gun.GetComponent<Rarity_and_level>() != null)
                     Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value, Slot2_gun.GetComponent<Rarity_and_level>().Gun_level.Value, Slot2_gun.GetComponent<Rarity_and_level>().Rareity_level.Value);
                 else
                     Spawn_Gun_world_ServerRpc(Slot2_gun_id.Value, 0, 0);
+                    
+                // Ensure the currently held gun is dropped
                 DropGun_ServerRpc();
                 Set_SlotID_ServerRpc(2, gun_pick_script.Gun_id);
             }

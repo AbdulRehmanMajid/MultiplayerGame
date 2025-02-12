@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3027508540
+  GlobalObjectIdHash: 343943728
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -1454,6 +1454,7 @@ MonoBehaviour:
     m_InternalValue: 1
   Rareity_level:
     m_InternalValue: 1
+  Gun_Name: 
 --- !u!96 &8299309531512150767
 TrailRenderer:
   serializedVersion: 3
@@ -1654,7 +1655,7 @@ GameObject:
   - component: {fileID: 4634366837682908369}
   - component: {fileID: 33255813305986009}
   - component: {fileID: 3190547772565644537}
-  - component: {fileID: 7624789744930005692}
+  - component: {fileID: 4996922880985642575}
   m_Layer: 16
   m_Name: Pickup
   m_TagString: Untagged
@@ -1766,7 +1767,7 @@ MonoBehaviour:
   gun_pickup_name: Press For Rai_K84
   enable: 1
   gun_data: {fileID: -8783471226809276669}
---- !u!114 &7624789744930005692
+--- !u!114 &4996922880985642575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1783,7 +1784,10 @@ MonoBehaviour:
   world_gun_ui_canvas: {fileID: 7891770039391161598}
   gun_data: {fileID: -8783471226809276669}
   gun_stuff: {fileID: 7676359298303231929}
-  Gun_Name: Rai_K84
+  Gun_Name: Rai_K
+  uiVisibleDistance: 9
+  uiRect: {fileID: 8699558783334673826}
+  parentCanvas: {fileID: 5355968137139510379}
 --- !u!1 &3834083728904534389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4606,15 +4610,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 632476576168633263}
     m_Modifications:
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: uiRect
+      value: 
+      objectReference: {fileID: 8699558783334673826}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: Gun_Name
+      value: Rai_K
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: gun_data
+      value: 
+      objectReference: {fileID: -8783471226809276669}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: gun_stuff
+      value: 
+      objectReference: {fileID: 7676359298303231929}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: parentCanvas
+      value: 
+      objectReference: {fileID: 5355968137139510379}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: uiVisibleDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: world_gun_ui_canvas
+      value: 
+      objectReference: {fileID: 7891770039391161598}
+    - target: {fileID: 5734505406677565213, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -4639,12 +4683,27 @@ PrefabInstance:
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -4669,27 +4728,27 @@ PrefabInstance:
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -17.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 27.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
         type: 3}
@@ -4711,11 +4770,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: world_Gun_ui
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8966931145840190046, guid: b3867f02890b1a34fba259e3dc92b318,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -5975860790953514162, guid: b3867f02890b1a34fba259e3dc92b318, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3867f02890b1a34fba259e3dc92b318, type: 3}
+--- !u!223 &5355968137139510379 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5734505406677565213, guid: b3867f02890b1a34fba259e3dc92b318,
+    type: 3}
+  m_PrefabInstance: {fileID: 414673028422591350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7181415976282761984 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7379347155799394422, guid: b3867f02890b1a34fba259e3dc92b318,
@@ -4737,6 +4808,12 @@ MonoBehaviour:
 --- !u!1 &7891770039391161598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7513136562887683976, guid: b3867f02890b1a34fba259e3dc92b318,
+    type: 3}
+  m_PrefabInstance: {fileID: 414673028422591350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8699558783334673826 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9041605666960740052, guid: b3867f02890b1a34fba259e3dc92b318,
     type: 3}
   m_PrefabInstance: {fileID: 414673028422591350}
   m_PrefabAsset: {fileID: 0}
