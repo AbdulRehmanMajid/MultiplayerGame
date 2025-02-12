@@ -20,7 +20,7 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 - #### Power-Ups
 ![Power](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/perk.gif)
 - #### Player Death
-![Death](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/death.gif))
+![Death](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/death.gif)
 - #### Cross Platform Multiplayer
 ![MP](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/Multiplayer.gif)
 - #### Revive Mechanics
@@ -42,7 +42,7 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 - #### Extract the given zip file.
 
 
-  ![install](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/install.gif)
+![install](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/install.gif)
 
 
 - #### Hosting a Game
