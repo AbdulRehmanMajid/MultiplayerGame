@@ -62,7 +62,7 @@ Enter the IP Adress of the Host Game then click on client.
 
 #### Movement
 
-W A S D
+W A S D | Space Bar For Jumping
 #### Reload
 R
 #### Switch Weapons
