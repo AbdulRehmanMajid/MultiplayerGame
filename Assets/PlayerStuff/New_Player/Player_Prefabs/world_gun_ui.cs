@@ -72,7 +72,7 @@ public class world_gun_ui : MonoBehaviour
         {
             // Check distance between the player and the gun.
             float distance = Vector3.Distance(player_cam.transform.position, transform.position);
-            Debug.LogError(distance);
+           
             if (distance <= uiVisibleDistance)
             {
                 // Check if the player is actually looking at the gun using a dot product.
