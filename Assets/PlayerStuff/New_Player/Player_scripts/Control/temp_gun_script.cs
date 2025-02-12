@@ -501,7 +501,7 @@ public class temp_gun_script : NetworkBehaviour
     IEnumerator StartContinuousFireSoundDelay()
     {
         
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         if (shooting && continous_fire)
         {
             playshootsound_ServerRpc(true);
