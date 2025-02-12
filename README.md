@@ -11,6 +11,9 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 
 - #### Procedural Recoil
 ![Recoil] <img src="https://s3.gifyu.com/images/b2A50.gif">
+-![Sample Gif](https://s3.gifyu.com/images/b2A50.gif")
+
++<img src="https://s3.gifyu.com/images/b2A50.gif?raw=true" width="200px">
 - #### First and Third Person POV
 ![POV](https://s3.gifyu.com/images/b2A5R.gif)
 - #### Gun Swapping
