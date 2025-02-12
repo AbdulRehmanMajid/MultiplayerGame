@@ -14,6 +14,7 @@ public class temp_zombie_ai : NetworkBehaviour
     #region Fields & References
     // UI
     public float ease_health_speed = 0.05f;
+    public float uiVisibleDistance = 15f;
     public GameObject collider_hp_bar;
     public Slider hpbar;
     public Slider easehealth_Bar;
@@ -339,6 +340,10 @@ public class temp_zombie_ai : NetworkBehaviour
         {
             cam_looker.p_cam = P_cam;
         }
+        float distance = Vector3.Distance(cam_looker.p_cam.transform.position, transform.position);
+           
+            if (distance <= uiVisibleDistance)
+            {
         
         // Compute the direction from the player's camera to the zombie.
         Vector3 directionToZombie = (transform.position - cam_looker.p_cam.position).normalized;
@@ -348,6 +353,11 @@ public class temp_zombie_ai : NetworkBehaviour
         // Enable the health canvas only if the zombie is within a narrow field of view.
         // Here, a dot product threshold of 0.95 roughly corresponds to ~18° cone.
         hp_stuff.enabled = dot >= 0.85f;
+            }
+            else
+            {
+                hp_stuff.enabled = false;
+            }
     }
     #endregion
 

@@ -34,6 +34,7 @@ public class world_gun_ui : MonoBehaviour
         }
         // Update the gun text.
         gun_stuff.text = Gun_Name + " | " + "Level: " + gun_data.Gun_level.Value.ToString() + " | " + gun_data.Rareity_level.Value.ToString();
+         world_gun_ui_canvas.SetActive(false);
 
        // uiRect = world_gun_ui_canvas.GetComponent<RectTransform>();
        // parentCanvas = world_gun_ui_canvas.GetComponentInParent<Canvas>();
@@ -43,6 +44,7 @@ public class world_gun_ui : MonoBehaviour
     {
         if (player_cam == null)
         {
+            world_gun_ui_canvas.SetActive(false);
            if(GameObject.FindGameObjectWithTag("Self_cam").GetComponent<Camera>() != null)
             {
                  Camera cam = GameObject.FindGameObjectWithTag("Self_cam").GetComponent<Camera>();
@@ -61,9 +63,12 @@ public class world_gun_ui : MonoBehaviour
             {
                 return;
             }
+            return;
         }
 
-        // Check if the gun is in view.
+        
+        if(player_cam != null)
+        {
         Vector3 viewportPos = player_cam.WorldToViewportPoint(transform.position);
         bool onScreen = viewportPos.z > 0 && viewportPos.x >= 0 && viewportPos.x <= 1 && viewportPos.y >= 0 && viewportPos.y <= 1;
 
@@ -95,6 +100,7 @@ public class world_gun_ui : MonoBehaviour
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPoint, parentCanvas.worldCamera, out anchoredPos);
             uiRect.anchoredPosition = anchoredPos;
             }
+        }
         }
     }
 }
