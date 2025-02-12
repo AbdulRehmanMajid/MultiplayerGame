@@ -10,24 +10,21 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 ## Features
 
 - #### Procedural Recoil
-![Recoil] <img src="https://s3.gifyu.com/images/b2A50.gif">
--![Sample Gif](https://s3.gifyu.com/images/b2A50.gif")
-
-+<img src="https://s3.gifyu.com/images/b2A50.gif?raw=true" width="200px">
+![Recoil](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/Recoil.gif)
 - #### First and Third Person POV
-![POV](https://s3.gifyu.com/images/b2A5R.gif)
+![POV](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/3rd_person.gif)
 - #### Gun Swapping
-![Swap](https://s3.gifyu.com/images/b2A5j.gif)
+![Swap](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/gun_swap.gif)
 - #### Zombies 
-![Zombies](https://s3.gifyu.com/images/b2A58.gif)
+![Zombies](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/zombie.gif)
 - #### Power-Ups
-![Power](https://s3.gifyu.com/images/b2A5i.gif)
+![Power](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/perk.gif)
 - #### Player Death
-![Death](https://s3.gifyu.com/images/b2A56.gif)
+![Death](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/death.gif))
 - #### Cross Platform Multiplayer
-![MP](https://s3.gifyu.com/images/b2A5g.gif)
+![MP](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/Multiplayer.gif)
 - #### Revive Mechanics
-![Revive](https://s3.gifyu.com/images/b2A5C.gif)
+![Revive](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/revive.gif)
 
 
 
@@ -45,17 +42,17 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 - #### Extract the given zip file.
 
 
-  ![install](https://s3.gifyu.com/images/b2A1V.gif)
+  ![install](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/install.gif)
 
 
 - #### Hosting a Game
 Ensure that IP Address is correct.
-![Host](https://s3.gifyu.com/images/b2A1a.gif)
+![Host](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/host.gif)
 
 
 - #### Joining a Game
 Enter the IP Adress of the Host Game then click on client.
-![Client](https://s3.gifyu.com/images/b2A1Z.gif)
+![Client](https://github.com/AbdulRehmanMajid/MultiplayerGame/blob/master/Gifs/Client.gif)
 
 - ## Note:
 #### I have not generally considered working on UI/UX properly until the game is feature-complete.This process will be streamlined once the game is feature-ready.
