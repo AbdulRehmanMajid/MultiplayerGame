@@ -10,7 +10,7 @@ This is a Multiplayer game I developed in my free time via Unity using Netcode f
 ## Features
 
 - #### Procedural Recoil
-![Recoil](https://s3.gifyu.com/images/b2A50.gif)
+![Recoil] <img src="https://s3.gifyu.com/images/b2A50.gif">
 - #### First and Third Person POV
 ![POV](https://s3.gifyu.com/images/b2A5R.gif)
 - #### Gun Swapping
